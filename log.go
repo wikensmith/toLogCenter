@@ -36,7 +36,7 @@ type logInfo struct{
 var URL = "http://192.168.0.212:8081/log/save"
 
 type Logger struct {
-	lock sync.Mutex
+	lock *sync.Mutex
 	cacheLst [][]interface{} // 日志缓存列表 [[key, *logInfo], [key2, *logInfo]]
 	resultMap map[string]interface{}
 	Project string // 日志中心项目名称
@@ -48,6 +48,7 @@ type Logger struct {
 }
 
 func (l *Logger)New() *Logger {
+	l.lock = new(sync.Mutex)
 	l.Field = make([]interface{}, 5)
 	l.cacheLst = make([][]interface{}, 0)
 	l.resultMap = make(map[string]interface{}, 0)
