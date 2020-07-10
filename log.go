@@ -1,4 +1,4 @@
-package SendToLogCenter
+package toLogCenter
 
 import (
 	"bytes"
