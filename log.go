@@ -61,7 +61,7 @@ func (l *Logger)Level(level string)  {
 	l.level = level
 	l.lock.Unlock()
 }
-func (l *Logger)AddField(index int, val string)  {
+func (l *Logger)AddField(index int, val interface{})  {
 	if index > 4 {
 		return
 	}
@@ -74,6 +74,7 @@ func (l *Logger)runFuncName()string{
 	f := runtime.FuncForPC(pc[0])
 	return f.Name()
 }
+
 func (l *Logger)getMap()  {
 	l.resultMap["process"] = l.cacheLst
 }
@@ -90,7 +91,7 @@ func (l *Logger)PrintReturn(content interface{})  {
 
 }
 
-func (l * Logger)Print(content string)  {
+func (l * Logger)Print(content interface{})  {
 	fmt.Println(l.runFuncName())
 	tempStruct := logInfo{
 		Content: content,
