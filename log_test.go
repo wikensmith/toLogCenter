@@ -19,11 +19,25 @@ func TestAAA(t *testing.T) {
 	}()
 
 	logger = logger.New()
-	logger.Print( "wikenvalue")
-	logger.Print("wikenvalue1")
-	logger.Print( "wikenvalue2")
-	logger.Print("wikenvalue3")
-	logger.Print( "wikenvalue5")
+	//logger.Print( "wikenvalue")
+	//logger.Print("wikenvalue1")
+	//logger.Print( "wikenvalue2")
+	//logger.Print("wikenvalue3")
+	//logger.Print( "wikenvalue5")
+	logger.Print(map[string]string{
+		"aa": "aa",
+		"bb": "aa",
+		"cc": "aa",
+		"add": "aa",
+		"aas": "aa",
+	})
+	logger.Print(map[string]string{
+		"aa": "aa",
+		"bb": "aa",
+		"cc": "aa",
+		"add": "aa",
+		"aas": "aa",
+	})
 	logger.PrintInput("aaaaaaaaaaaaaaaaaa")
 	logger.PrintReturn("bbbbbbbbbbbbbbbbbbb")
 	logger.level = "info"
