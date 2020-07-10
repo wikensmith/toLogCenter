@@ -1,6 +1,8 @@
-package log
+package SendToLogCenter
 
-import "testing"
+import (
+	"testing"
+)
 
 
 func TestAAA(t *testing.T) {
