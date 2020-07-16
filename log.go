@@ -92,10 +92,9 @@ func (l *Logger)PrintReturn(content interface{})  {
 
 }
 
-func (l * Logger)Print(content interface{})  {
-	fmt.Println(l.runFuncName())
-
-	fmt.Printf("%#v", content)
+func (l * Logger)Print(format string, a ...interface{})  {
+	content := fmt.Sprintf(format, a...)
+	fmt.Printf("%v", content)
 	tempStruct := logInfo{
 		Content: content,
 		Func:    l.runFuncName(),
@@ -105,9 +104,6 @@ func (l * Logger)Print(content interface{})  {
 	l.cacheLst = append(l.cacheLst, []interface{}{tempStruct})
 	l.lock.Unlock()
 }
-
-
-
 
 // 发送日志到退票中心
 func (l *Logger)Send()  {
