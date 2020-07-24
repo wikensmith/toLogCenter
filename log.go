@@ -94,7 +94,6 @@ func (l *Logger)PrintReturn(content interface{})  {
 
 func (l *Logger)print(content interface{})  {
 	fmt.Printf("%v", content)
-	fmt.Println(l.runFuncName())
 	tempStruct := logInfo{
 		Content: content,
 		Func:    l.runFuncName(),
@@ -107,7 +106,6 @@ func (l *Logger)print(content interface{})  {
 
 func (l *Logger)Printf(format string, a ...interface{})  {
 	content := fmt.Sprintf(format, a...)
-	fmt.Println(content)
 	l.print(content)
 }
 
