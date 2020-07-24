@@ -38,6 +38,7 @@ func TestAAA(t *testing.T) {
 		"add": "aa",
 		"aas": "aa",
 	})
+	logger.Printf("sss%s", "bbb")
 	logger.PrintInput("aaaaaaaaaaaaaaaaaa")
 	logger.PrintReturn("bbbbbbbbbbbbbbbbbbb")
 	logger.level = "info"

@@ -71,7 +71,7 @@ func (l *Logger)AddField(index int, val interface{})  {
 
 func (l *Logger)runFuncName()string{
 	pc := make([]uintptr,1)
-	runtime.Callers(3,pc)
+	runtime.Callers(4,pc)
 	f := runtime.FuncForPC(pc[0])
 	return f.Name()
 }
@@ -94,6 +94,7 @@ func (l *Logger)PrintReturn(content interface{})  {
 
 func (l *Logger)print(content interface{})  {
 	fmt.Printf("%v", content)
+	fmt.Println(l.runFuncName())
 	tempStruct := logInfo{
 		Content: content,
 		Func:    l.runFuncName(),
@@ -106,6 +107,7 @@ func (l *Logger)print(content interface{})  {
 
 func (l *Logger)Printf(format string, a ...interface{})  {
 	content := fmt.Sprintf(format, a...)
+	fmt.Println(content)
 	l.print(content)
 }
 
