@@ -17,6 +17,7 @@ func TestAAA(t *testing.T) {
 	defer func() {
 		logger.Send()
 	}()
+	logger.LogURL = "http://192.168.0.151:8081/log/save"
 
 	logger = logger.New()
 	//logger.Print( "wikenvalue")

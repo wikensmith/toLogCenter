@@ -158,15 +158,22 @@ func send(URL string, msg []byte)  {
 	}
 
 	defer func() {
+		if resp == nil {
+			return
+		}
 		if err := resp.Body.Close(); err != nil {
 			fmt.Println(err)
 		}
 	}()
 
-	respStr, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println("error in send log post, error: ", err.Error())
+	if resp != nil {
+		respStr, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			fmt.Println("error in send log post, error: ", err.Error())
+		}
+		fmt.Println(string(respStr))
+	}else {
+		fmt.Println("error in toLogCenter, 发送日志响应为nil, 请联系开发者检查日志服务是否正常！ 并检查日志地址是否正确？")
 	}
-	fmt.Println(string(respStr))
 }
 
