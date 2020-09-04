@@ -17,7 +17,7 @@ func TestAAA(t *testing.T) {
 	defer func() {
 		logger.Send()
 	}()
-	logger.LogURL = "http://192.168.0.151:8081/log/save"
+	logger.LogURL = "http://log.ys.com/log/save"
 
 	logger = logger.New()
 	//logger.Print( "wikenvalue")
@@ -25,25 +25,28 @@ func TestAAA(t *testing.T) {
 	//logger.Print( "wikenvalue2")
 	//logger.Print("wikenvalue3")
 	//logger.Print( "wikenvalue5")
+	//logger.Print(map[string]string{
+	//	"aa": "aa",
+	//	"bb": "aa",
+	//	"cc": "aa",
+	//	"add": "aa",
+	//	"aas": "aa",
+	//})
+	//logger.Print("aaaaa", "bbb")
+	logger.Printf("aaaaa%s", "bbb")
 	logger.Print(map[string]string{
 		"aa": "aa",
 		"bb": "aa",
 		"cc": "aa",
 		"add": "aa",
 		"aas": "aa",
-	})
-	logger.Print(map[string]string{
-		"aa": "aa",
-		"bb": "aa",
-		"cc": "aa",
-		"add": "aa",
-		"aas": "aa",
-	})
-	logger.Printf("sss%s", "bbb")
-	logger.PrintInput("aaaaaaaaaaaaaaaaaa")
-	logger.PrintReturn("bbbbbbbbbbbbbbbbbbb")
-	logger.level = "info"
-	logger.AddField(0, "AA")
-	logger.AddField(1, "BB")
-	logger.AddField(2, "CC")
+	}, "请求异常")
+	//logger.Printf("sss%s", "bbb", "cccc")
+	//logger.PrintInput("aaaaaaaaaaaaaaaaaa")
+	//logger.PrintReturn("bbbbbbbbbbbbbbbbbbb")
+	//logger.level = "info"
+	//logger.AddField(0, "AA")
+	//logger.AddField(1, "BB")
+	//logger.AddField(2, "CC")
+
 }
